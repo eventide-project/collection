@@ -1,10 +1,8 @@
 require_relative 'automated_init'
 
-controls = Collection::Controls
-
 context "Collection" do
   context "Adding a Member" do
-    collection = Collection[String]
+    collection = Collection.new(String)
 
     context "Member is an Assignable Type" do
       collection.add('something')

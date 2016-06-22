@@ -1,1 +1,0 @@
-module Collection::Controls; end

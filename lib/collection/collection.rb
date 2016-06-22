@@ -15,13 +15,9 @@ class Collection
   end
   alias :<< :add
 
-  def member?(&predicate)
-    members(&predicate).length == 1
-  end
-
-  def members?(&predicate)
+  def member?(val=nil, &predicate)
     if !block_given?
-      predicate = lamda { |_| true }
+      predicate = lambda { |m| m == val }
     end
 
     members(&predicate).length > 0
