@@ -1,4 +1,4 @@
-require_relative 'automated_init'
+require_relative '../automated_init'
 
 context "Collection" do
   context "Adding a Member" do
