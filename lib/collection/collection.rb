@@ -27,6 +27,10 @@ class Collection
     set.select(&predicate)
   end
 
+  def member(&predicate)
+    set.find(&predicate)
+  end
+
   def each(&action)
     set.each(&action)
   end
