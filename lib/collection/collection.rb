@@ -15,19 +15,19 @@ class Collection
   end
   alias :<< :add
 
-  def member?(val=nil, &predicate)
+  def entry?(val=nil, &predicate)
     if !block_given?
       predicate = lambda { |m| m == val }
     end
 
-    members(&predicate).length > 0
+    entries(&predicate).length > 0
   end
 
-  def members(&predicate)
+  def entries(&predicate)
     set.select(&predicate)
   end
 
-  def member(&predicate)
+  def entry(&predicate)
     set.find(&predicate)
   end
 
@@ -35,7 +35,7 @@ class Collection
     set.each(&action)
   end
 
-  def members?
+  def entries?
     !set.empty?
   end
 

@@ -8,7 +8,7 @@ context "Collection" do
 
         collection.add('thing')
 
-        found = collection.member? { |m| m == 'thing' }
+        found = collection.entry? { |m| m == 'thing' }
 
         test "Member is found" do
           assert(found)
@@ -18,7 +18,7 @@ context "Collection" do
       context "Member is not in the collection" do
         collection = Collection.new(String)
 
-        found = collection.member? { |m| m == 'thing' }
+        found = collection.entry? { |m| m == 'thing' }
 
         test "Member is not found" do
           refute(found)

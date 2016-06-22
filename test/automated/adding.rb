@@ -8,7 +8,7 @@ context "Collection" do
       collection.add('something')
 
       test "Member can be detected in the collection" do
-        assert(collection.member? { |m| m == 'something' })
+        assert(collection.entry? { |m| m == 'something' })
       end
     end
 
