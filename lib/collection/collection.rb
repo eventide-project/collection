@@ -31,6 +31,10 @@ class Collection
     set.each(&action)
   end
 
+  def members?
+    !set.empty?
+  end
+
   def empty?
     set.empty?
   end
