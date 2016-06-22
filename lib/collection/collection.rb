@@ -56,6 +56,10 @@ class Collection
     set.empty?
   end
 
+  def length
+    set.length
+  end
+
   private def set
     @set ||= Set.new
   end
