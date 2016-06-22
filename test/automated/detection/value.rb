@@ -2,7 +2,7 @@ require_relative '../automated_init'
 
 context "Collection" do
   context "Detection" do
-    context "Argument From" do
+    context "Value" do
       context "Member is in the collection" do
         collection = Collection.new(String)
 
