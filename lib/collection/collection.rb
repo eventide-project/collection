@@ -1,4 +1,6 @@
 class Collection
+  include Enumerable
+
   attr_reader :type_parameter
 
   def initialize(type_parameter)
@@ -74,10 +76,6 @@ class Collection
 
   def empty?
     set.empty?
-  end
-
-  def length
-    set.length
   end
 
   private def set
