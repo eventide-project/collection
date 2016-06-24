@@ -6,13 +6,23 @@ class Collection
   end
 
   def self.[](type_parameter)
-    Class.new(self) do
+    cls = Class.new(self) do
       def initialize; end
 
       define_method :type_parameter do
         type_parameter
       end
     end
+
+    set_collection_constant(type_parameter, cls)
+
+    cls
+  end
+
+  def self.set_collection_constant(constant, cls)
+    class_name = constant.name.gsub('::', '_')
+    self.const_set(class_name, cls)
+    class_name
   end
 
   def add(val)
