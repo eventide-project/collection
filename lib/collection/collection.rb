@@ -21,7 +21,11 @@ class Collection
 
   def self.set_collection_constant(constant, cls)
     class_name = constant.name.gsub('::', '_')
-    self.const_set(class_name, cls)
+
+    unless const_defined?(class_name)
+      self.const_set(class_name, cls)
+    end
+
     class_name
   end
 
