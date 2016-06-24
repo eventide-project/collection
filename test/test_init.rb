@@ -16,6 +16,7 @@ require_relative '../init.rb'
 
 require 'telemetry/logger'
 require 'test_bench'; TestBench.activate
+require 'pp'
 
 Telemetry::Logger::AdHoc.activate
 

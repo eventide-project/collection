@@ -1,16 +1,22 @@
 class Collection
-  attr_reader :cls
+  attr_reader :type_parameter
 
-  def initialize(cls)
-    @cls = cls
+  def initialize(type_parameter)
+    @type_parameter = type_parameter
   end
 
-  def self.[](cls)
-    new(cls)
+  def self.[](type_parameter)
+    Class.new(self) do
+      def initialize; end
+
+      define_method :type_parameter do
+        type_parameter
+      end
+    end
   end
 
   def add(val)
-    raise ArgumentError, "#{val.inspect} must be a #{cls.name}" unless val.is_a? cls
+    raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
     set.add(val)
   end
   alias :<< :add
