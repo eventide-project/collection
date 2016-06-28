@@ -78,19 +78,6 @@ module Collection
     end
     alias :<< :add
 
-    def add_unless(val, &predicate)
-      raise ArgumentError, "Predicate must be supplied" unless block_given?
-
-      member = entry(&predicate)
-
-      if member.nil?
-        member ||= val
-        add(member)
-      end
-
-      member
-    end
-
     def entry?(val=nil, &predicate)
       if !block_given?
         predicate = lambda { |m| m == val }
