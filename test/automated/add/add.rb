@@ -2,7 +2,7 @@ require_relative '../automated_init'
 
 context "Collection" do
   context "Adding a Member" do
-    collection = Collection.new(String)
+    collection = Collection::Set.new(String)
 
     context "Member is an Assignable Type" do
       collection.add('something')

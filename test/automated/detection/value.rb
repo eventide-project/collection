@@ -4,7 +4,7 @@ context "Collection" do
   context "Detection" do
     context "Value" do
       context "Member is in the collection" do
-        collection = Collection.new(String)
+        collection = Collection::Set.new(String)
 
         collection.add('thing')
 
@@ -16,7 +16,7 @@ context "Collection" do
       end
 
       context "Member is not in the collection" do
-        collection = Collection.new(String)
+        collection = Collection::Set.new(String)
 
         found = collection.entry?('thing')
 

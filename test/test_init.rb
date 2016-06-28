@@ -20,4 +20,5 @@ require 'pp'
 
 Telemetry::Logger::AdHoc.activate
 
+include Collection
 require 'collection/controls'
