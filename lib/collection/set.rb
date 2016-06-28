@@ -1,6 +1,24 @@
 module Collection
   def self.[](type_parameter)
-    Collection::Set[type_parameter]
+    Set[type_parameter]
+  end
+
+  refine Object do
+    def Collection(content)
+      array = Array(content)
+
+      raise ArgumentError, "Content can't be empty" if array.empty?
+
+      type_parameter = array[0].class
+
+      set = Set[type_parameter].new
+
+      array.each do |member|
+        set.add member
+      end
+
+      set
+    end
   end
 
   class Set
