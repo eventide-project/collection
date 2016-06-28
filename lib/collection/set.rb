@@ -31,6 +31,20 @@ module Collection
     end
 
     def self.[](type_parameter)
+      type_parameter_name = constant_name(type_parameter)
+
+      cls = nil
+      unless const_defined?(type_parameter_name)
+        cls = define_class(type_parameter)
+        set_collection_constant(type_parameter, cls)
+      else
+        cls = const_get(type_parameter_name)
+      end
+
+      cls
+    end
+
+    def self.define_class(type_parameter)
       cls = Class.new(self) do
         def initialize; end
 
@@ -44,8 +58,12 @@ module Collection
       cls
     end
 
+    def self.constant_name(constant)
+      constant.name.gsub('::', '_')
+    end
+
     def self.set_collection_constant(constant, cls)
-      class_name = constant.name.gsub('::', '_')
+      class_name = constant_name(constant)
 
       unless const_defined?(class_name)
         self.const_set(class_name, cls)
