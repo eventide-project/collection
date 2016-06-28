@@ -19,7 +19,7 @@ context "Collection" do
       end
 
       test "The class's name is derived from the type parameter's class" do
-        assert(collection.class.name == "Collection::Foo_Bar")
+        assert(collection.class.name == "Collection::Set::Foo_Bar")
       end
     end
   end

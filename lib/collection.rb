@@ -1,1 +1,1 @@
-require 'collection/collection'
+require 'collection/set'

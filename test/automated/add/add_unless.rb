@@ -3,7 +3,7 @@ require_relative '../automated_init'
 context "Collection" do
   context "Adding a Member Unless (Condition)" do
     context "Condition is Met" do
-      collection = Collection.new(String)
+      collection = Collection::Set.new(String)
       collection.add('something')
 
       collection.add_unless('something else') do |m|
@@ -16,7 +16,7 @@ context "Collection" do
     end
 
     context "Condition is not met" do
-      collection = Collection.new(String)
+      collection = Collection::Set.new(String)
 
       collection.add_unless('something else') do |m|
         m == 'something'
