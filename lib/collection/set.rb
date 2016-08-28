@@ -106,6 +106,12 @@ module Collection
       set.empty?
     end
 
+    def length
+      set.length
+    end
+    alias :size :length
+    alias :count :length
+
     private def set
       @set ||= ::Set.new
     end
