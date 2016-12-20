@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
-  s.name = 'collection'
+  s.name = 'evt-collection'
   s.summary = 'Strictly-typed set'
   s.version = '0.4.1.1'
   s.description = ' '
