@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name = 'evt-collection'
   s.summary = 'Strictly-typed set'
-  s.version = '0.4.1.1'
+  s.version = '0.4.1.2'
   s.description = ' '
 
   s.authors = ['The Eventide Project']
@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.3.3'
 
-  s.add_development_dependency 'ntl-test_bench'
+  s.add_development_dependency 'test_bench'
   s.add_development_dependency 'evt-telemetry-logger'
 end
