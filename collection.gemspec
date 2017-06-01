@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.name = 'evt-collection'
   s.summary = 'Strictly-typed set'
-  s.version = '0.5.0.0'
+  s.version = '0.5.0.1'
   s.description = ' '
 
   s.authors = ['The Eventide Project']
