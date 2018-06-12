@@ -8,7 +8,7 @@ module Collection
       class Member
       end
 
-      module Anomalous
+      module Anomaly
         def self.example
           [Array::Member.new, Member.new]
         end

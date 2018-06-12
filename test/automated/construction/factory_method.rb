@@ -51,7 +51,7 @@ context "Collection" do
       end
 
       context "From an array of varied types" do
-        array = Controls::Array::Anomalous.example
+        array = Controls::Array::Anomaly.example
 
         using Collection
 
