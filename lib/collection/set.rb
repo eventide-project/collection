@@ -52,7 +52,7 @@ module Collection
 
     def add(val)
       raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
-      set.add(val)
+      content.add(val)
     end
     alias :<< :add
 
@@ -65,33 +65,33 @@ module Collection
     end
 
     def entries(&predicate)
-      set.select(&predicate)
+      content.select(&predicate)
     end
 
     def entry(&predicate)
-      set.find(&predicate)
+      content.find(&predicate)
     end
 
     def each(&action)
-      set.each(&action)
+      content.each(&action)
     end
 
     def entries?
-      !set.empty?
+      !content.empty?
     end
 
     def empty?
-      set.empty?
+      content.empty?
     end
 
     def length
-      set.length
+      content.length
     end
     alias :size :length
     alias :count :length
 
-    private def set
-      @set ||= ::Set.new
+    def content
+      @content ||= ::Set.new
     end
   end
 end
