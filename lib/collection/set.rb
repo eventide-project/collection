@@ -4,16 +4,16 @@ module Collection
   end
 
   refine Object do
-    def Collection(content)
-      content = Array(content)
+    def Collection(items)
+      items = Array(items)
 
-      raise ArgumentError, "Content can't be empty" if content.empty?
+      raise ArgumentError, "Content can't be empty" if items.empty?
 
-      type_parameter = content[0].class
+      type_parameter = items[0].class
 
       set = Set[type_parameter].new
 
-      content.each do |member|
+      items.each do |member|
         set.add member
       end
 
