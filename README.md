@@ -1,6 +1,6 @@
 # collection
 
-Strictly-typed set
+Type-checked set
 
 ## Example
 
