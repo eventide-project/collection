@@ -6,46 +6,44 @@ context "Collection" do
       context "From an Array" do
         array = Controls::Array.example
 
-        using Collection
-        collection = Collection(array)
+        set = Collection::Set(array)
 
         test "Constructs the instance" do
-          refute(collection.nil?)
+          refute(set.nil?)
         end
 
-        test "The first member's class is the collection's class parameter" do
-          assert(collection.type_parameter == array[0].class)
+        test "The first member's class is the set's class parameter" do
+          assert(set.type_parameter == array[0].class)
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Set::Collection_Controls_Array_Member")
+          assert(set.class.name == "Collection::Set::Collection_Controls_Array_Member")
         end
 
         test "Collection contents is the array it was constructed from" do
-          assert(collection.to_a == array)
+          assert(set.to_a == array)
         end
       end
 
       context "From a Single Object" do
         member = Controls::Member.example
 
-        using Collection
-        collection = Collection(member)
+        set = Collection::Set(member)
 
         test "Constructs the instance" do
-          refute(collection.nil?)
+          refute(set.nil?)
         end
 
-        test "The object's class is the collection's class parameter" do
-          assert(collection.type_parameter == member.class)
+        test "The object's class is the set's class parameter" do
+          assert(set.type_parameter == member.class)
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Set::Collection_Controls_Member_Member")
+          assert(set.class.name == "Collection::Set::Collection_Controls_Member_Member")
         end
 
         test "Collection contents is the object it was constructed from" do
-          assert(collection.to_a == [member])
+          assert(set.to_a == [member])
         end
 
       end
@@ -53,10 +51,8 @@ context "Collection" do
       context "From an array of varied types" do
         array = Controls::Array::Anomaly.example
 
-        using Collection
-
         test "Is an error" do
-          assert proc { Collection(array) } do
+          assert proc { Collection::Set(array) } do
             raises_error? ArgumentError
           end
         end
