@@ -34,4 +34,14 @@ context "Collection" do
       assert(set.to_a == members)
     end
   end
+
+  context "Result" do
+    set = Collection::Set.new(String)
+
+    result = set.add('something')
+
+    test "The set" do
+      assert(result == set)
+    end
+  end
 end

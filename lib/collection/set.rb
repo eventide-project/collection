@@ -57,6 +57,8 @@ module Collection
         raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
         content.add(val)
       end
+
+      self
     end
     alias :<< :add
 
