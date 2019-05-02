@@ -1,7 +1,7 @@
 require_relative '../automated_init'
 
 context "Collection" do
-  context "Adding a Member" do
+  context "Add a Member" do
     collection = Collection::Set.new(String)
 
     context "Member is an Assignable Type" do
@@ -20,6 +20,18 @@ context "Collection" do
           raises_error? ArgumentError
         end
       end
+    end
+  end
+
+  context "An Array of Members" do
+    set = Collection::Set.new(String)
+
+    members = ['something', 'something else']
+
+    set.add(members)
+
+    test "All members are added" do
+      assert(set.to_a == members)
     end
   end
 end

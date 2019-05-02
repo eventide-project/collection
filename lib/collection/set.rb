@@ -51,8 +51,12 @@ module Collection
     end
 
     def add(val)
-      raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
-      content.add(val)
+      vals = Array(val)
+
+      vals.each do |val|
+        raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
+        content.add(val)
+      end
     end
     alias :<< :add
 
