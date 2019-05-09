@@ -12,7 +12,7 @@ module Collection
       type_parameter_name = constant_name(type_parameter)
 
       cls = nil
-      unless const_defined?(type_parameter_name)
+      unless self.const_defined?(type_parameter_name, false)
         cls = define_class(type_parameter)
         set_collection_constant(type_parameter, cls)
       else
@@ -43,7 +43,7 @@ module Collection
     def self.set_collection_constant(constant, cls)
       class_name = constant_name(constant)
 
-      unless const_defined?(class_name)
+      unless self.const_defined?(class_name, false)
         self.const_set(class_name, cls)
       end
 
