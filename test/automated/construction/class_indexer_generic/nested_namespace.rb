@@ -1,10 +1,10 @@
-require_relative '../../../automated_init'
+require_relative '../../automated_init'
 
 context "Construction" do
   context "Set" do
     context "Class Indexer Generic" do
-      context "Root Namespace Type Parameter" do
-        type_parameter = String
+      context "Nested Namespace Type Parameter" do
+        type_parameter = Controls::Member.example_class
         set_class = Collection::Set[type_parameter]
 
         test "The index value is the collection's class parameter" do
@@ -12,7 +12,7 @@ context "Construction" do
         end
 
         context "Class Name" do
-          type_parameter_name = type_parameter.name
+          type_parameter_name = type_parameter.name.gsub('::', '_')
 
           test "Derived from the type parameter's class" do
             assert(set_class.name == "Collection::Set::#{type_parameter_name}")
