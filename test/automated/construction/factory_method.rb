@@ -52,8 +52,8 @@ context "Collection" do
         array = Controls::Array::Anomaly.example
 
         test "Is an error" do
-          assert proc { Collection::Set(array) } do
-            raises_error? ArgumentError
+          assert_raises ArgumentError do
+            Collection::Set(array)
           end
         end
       end

@@ -13,11 +13,9 @@ context "Collection" do
     end
 
     context "Member is Not Assignable Type" do
-      incorrect = proc { collection.add(:not_a_string) }
-
       test "Is an error (ArgumentError)" do
-        assert(incorrect) do
-          raises_error? ArgumentError
+        assert_raises ArgumentError do
+          collection.add(:not_a_string)
         end
       end
     end
