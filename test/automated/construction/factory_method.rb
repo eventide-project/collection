@@ -52,7 +52,7 @@ context "Collection" do
         array = Controls::Array::Anomaly.example
 
         test "Is an error" do
-          assert_raises ArgumentError do
+          assert_raises(ArgumentError) do
             Collection::Set(array)
           end
         end

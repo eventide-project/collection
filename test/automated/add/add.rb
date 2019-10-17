@@ -14,7 +14,7 @@ context "Collection" do
 
     context "Member is Not Assignable Type" do
       test "Is an error (ArgumentError)" do
-        assert_raises ArgumentError do
+        assert_raises(ArgumentError) do
           collection.add(:not_a_string)
         end
       end
