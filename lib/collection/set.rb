@@ -50,6 +50,11 @@ module Collection
       class_name
     end
 
+    def ==(other)
+      other.class == self.class && other.type_parameter == self.type_parameter && other.content == self.content
+    end
+    alias :eql? :==
+
     def add(val)
       vals = Array(val)
 
