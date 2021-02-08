@@ -2,7 +2,7 @@ require_relative '../automated_init'
 
 context "Collection" do
   context "Equality" do
-    context "Collections are not equal" do
+    context "Collections Are Not Equal" do
       context "Different Class" do
         collection = Set.new
         other_collection = Collection::Set.new(String)
@@ -14,7 +14,7 @@ context "Collection" do
         end
       end
 
-      context "Different set type" do
+      context "Different Type Parameter" do
         collection = Collection::Set.new(String)
         other_collection = Collection::Set.new(Integer)
 
@@ -25,7 +25,7 @@ context "Collection" do
         end
       end
 
-      context "Different entries" do
+      context "Different Entries" do
         collection = Collection::Set.new(String)
         other_collection = Collection::Set.new(String)
 

@@ -2,7 +2,7 @@ require_relative '../automated_init'
 
 context "Collection" do
   context "Equality" do
-    context "Collections are equal" do
+    context "Collections Are Equal" do
       collection = Collection::Set.new(String)
       other_collection = Collection::Set.new(String)
 
