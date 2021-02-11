@@ -101,6 +101,12 @@ module Collection
     alias :size :length
     alias :count :length
 
+    def clear
+      content.clear
+
+      self
+    end
+
     def content
       @content ||= ::Set.new
     end
