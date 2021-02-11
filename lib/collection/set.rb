@@ -99,7 +99,6 @@ module Collection
       content.length
     end
     alias :size :length
-    alias :count :length
 
     def content
       @content ||= ::Set.new
