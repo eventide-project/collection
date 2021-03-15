@@ -56,12 +56,11 @@ module Collection
     alias :eql? :==
 
     def add(val)
-      vals = Array(val)
-
-      vals.each do |val|
-        raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}" unless val.is_a? type_parameter
-        content.add(val)
+      if not val.is_a?(type_parameter)
+        raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}"
       end
+
+      content.add(val)
 
       self
     end
