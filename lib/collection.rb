@@ -1,4 +1,5 @@
 require 'set'
 
-require 'collection/set'
+require 'collection/generic'
 require 'collection/collection'
+require 'collection/set'

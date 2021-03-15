@@ -17,5 +17,5 @@ require_relative '../init.rb'
 require 'test_bench'; TestBench.activate
 require 'pp'
 
-include Collection
 require 'collection/controls'
+Controls = Collection::Controls
