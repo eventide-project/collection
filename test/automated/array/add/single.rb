@@ -1,9 +1,9 @@
 require_relative '../../automated_init'
 
-context "Set" do
+context "Array" do
   context "Add" do
     context "Single" do
-      collection = Collection::Set.new(String)
+      collection = Collection::Array.new(String)
 
       context "Member is an Assignable Type" do
         collection.add('something')

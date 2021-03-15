@@ -15,7 +15,7 @@ module Collection
       raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}"
     end
 
-    content.add(val)
+    content << val
 
     self
   end
@@ -40,7 +40,7 @@ module Collection
   alias :eql? :==
 
   def self.Set(items)
-    items = Array(items)
+    items = Kernel::Array(items)
 
     raise ArgumentError, "Collection can't be empty" if items.empty?
 
@@ -49,9 +49,25 @@ module Collection
     set = Set[type_parameter].new
 
     items.each do |member|
-      set.add member
+      set.add(member)
     end
 
     set
+  end
+
+  def self.Array(items)
+    items = Kernel::Array(items)
+
+    raise ArgumentError, "Collection can't be empty" if items.empty?
+
+    type_parameter = items[0].class
+
+    array = Array[type_parameter].new
+
+    items.each do |member|
+      array.add(member)
+    end
+
+    array
   end
 end
