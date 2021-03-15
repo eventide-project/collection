@@ -9,7 +9,7 @@ context "Set" do
         collection.add('something')
 
         test "Member can be detected in the collection" do
-          assert(collection.entry? { |m| m == 'something' })
+          assert(collection.any? { |m| m == 'something' })
         end
       end
 

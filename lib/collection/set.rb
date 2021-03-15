@@ -66,16 +66,8 @@ module Collection
     end
     alias :<< :add
 
-    alias :entry? :any?
-    alias :entries :select
-    alias :entry :find
-
     def each(&action)
       content.each(&action)
-    end
-
-    def entries?
-      !content.empty?
     end
 
     def empty?
@@ -89,7 +81,6 @@ module Collection
 
     def clear
       content.clear
-
       self
     end
 
