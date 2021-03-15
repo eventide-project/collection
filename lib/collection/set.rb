@@ -66,21 +66,9 @@ module Collection
     end
     alias :<< :add
 
-    def entry?(val=nil, &predicate)
-      if !block_given?
-        predicate = lambda { |m| m == val }
-      end
-
-      entries(&predicate).length > 0
-    end
-
-    def entries(&predicate)
-      content.select(&predicate)
-    end
-
-    def entry(&predicate)
-      content.find(&predicate)
-    end
+    alias :entry? :any?
+    alias :entries :select
+    alias :entry :find
 
     def each(&action)
       content.each(&action)
