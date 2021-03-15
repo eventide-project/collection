@@ -1,9 +1,9 @@
 require_relative '../../automated_init'
 
-context "Set" do
+context "Array" do
   context "Add" do
     context "Result" do
-      collection = Collection::Set.new(String)
+      collection = Collection::Array.new(String)
 
       result = collection.add('something')
 

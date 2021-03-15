@@ -1,12 +1,12 @@
 require_relative '../../automated_init'
 
-context "Set" do
+context "Array" do
   context "Construction" do
     context "Factory Method" do
       context "From an Array" do
         array = Controls::Array.example
 
-        collection = Collection::Set(array)
+        collection = Collection::Array(array)
 
         test "Constructs the instance" do
           refute(collection.nil?)
@@ -17,7 +17,7 @@ context "Set" do
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Set::Collection_Controls_Array_Member")
+          assert(collection.class.name == "Collection::Array::Collection_Controls_Array_Member")
         end
 
         test "Collection contents is the array it was constructed from" do
@@ -28,7 +28,7 @@ context "Set" do
       context "From a Single Object" do
         member = Controls::Member.example
 
-        collection = Collection::Set(member)
+        collection = Collection::Array(member)
 
         test "Constructs the instance" do
           refute(collection.nil?)
@@ -39,7 +39,7 @@ context "Set" do
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Set::Collection_Controls_Member_Member")
+          assert(collection.class.name == "Collection::Array::Collection_Controls_Member_Member")
         end
 
         test "Collection contents is the object it was constructed from" do
