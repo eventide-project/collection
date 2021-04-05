@@ -9,5 +9,10 @@ module Collection
     def last
       content.last
     end
+
+    def length
+      count
+    end
+    alias :size :length
   end
 end
