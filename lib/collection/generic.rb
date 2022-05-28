@@ -16,6 +16,16 @@ module Collection
 
     def define_class(type_parameter)
       cls = Class.new(self) do
+        def self.build(items)
+          instance = new
+
+          items.each do |member|
+            instance.add(member)
+          end
+
+          instance
+        end
+
         def initialize; end
 
         define_method :type_parameter do
