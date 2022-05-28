@@ -1,10 +1,10 @@
 require_relative '../../automated_init'
 
-context "Set" do
+context "Array" do
   context "Enumerable" do
     context "Each" do
       members = Controls::Array.example
-      collection = Collection.Set(members)
+      collection = Collection.Array(members)
 
       enumerator = collection.each
 
