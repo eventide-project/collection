@@ -1,11 +1,11 @@
 require_relative '../../automated_init'
 
-context "Set" do
+context "Array" do
   context "Equality" do
     context "Equal" do
       context "Entries Are Equal" do
-        collection = Collection::Set.new(String)
-        other_collection = Collection::Set.new(String)
+        collection = Collection::Array.new(String)
+        other_collection = Collection::Array.new(String)
 
         collection.add('something')
         other_collection.add('something')

@@ -46,13 +46,7 @@ module Collection
 
     type_parameter = items[0].class
 
-    set = Set[type_parameter].new
-
-    items.each do |member|
-      set.add(member)
-    end
-
-    set
+    Set[type_parameter].build(items)
   end
 
   def self.Array(items)
@@ -62,12 +56,6 @@ module Collection
 
     type_parameter = items[0].class
 
-    array = Array[type_parameter].new
-
-    items.each do |member|
-      array.add(member)
-    end
-
-    array
+    Array[type_parameter].build(items)
   end
 end

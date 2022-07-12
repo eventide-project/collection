@@ -1,6 +1,6 @@
 require_relative '../../automated_init'
 
-context "Collection" do
+context "Set" do
   context "Equality" do
     context "Not Equal" do
       context "Different Class" do

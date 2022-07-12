@@ -52,7 +52,7 @@ context "Array" do
 
         test "Is an error" do
           assert_raises(ArgumentError) do
-            Collection::Set(array)
+            Collection::Array(array)
           end
         end
       end
