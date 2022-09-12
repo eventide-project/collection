@@ -3,7 +3,7 @@ require_relative '../../automated_init'
 context "Set" do
   context "Clear Members" do
     members = Controls::Array.example
-    collection = Collection.Set(members)
+    collection = Collection::Set(members)
 
     refute(collection.empty?)
 

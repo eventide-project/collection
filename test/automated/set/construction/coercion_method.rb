@@ -2,7 +2,7 @@ require_relative '../../automated_init'
 
 context "Set" do
   context "Construction" do
-    context "Factory Method" do
+    context "Coercion Method" do
       context "From an Array" do
         array = Controls::Array.example
 

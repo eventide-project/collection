@@ -4,7 +4,7 @@ context "Set" do
   context "Enumerable" do
     context "Each" do
       members = Controls::Array.example
-      collection = Collection.Set(members)
+      collection = Collection::Set(members)
 
       enumerator = collection.each
 
