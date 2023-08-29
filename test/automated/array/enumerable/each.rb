@@ -8,7 +8,7 @@ context "Array" do
 
       enumerator = collection.each
 
-      detail enumerator
+      detail enumerator.inspect
       is_enumerator = enumerator.class == Enumerator
 
       test "Is Enumerator" do
@@ -25,7 +25,7 @@ context "Array" do
         detail "Members: #{members}"
 
         test "Yields members" do
-          comment yielded_members
+          comment yielded_members.inspect
 
           assert(yielded_members == members)
         end
