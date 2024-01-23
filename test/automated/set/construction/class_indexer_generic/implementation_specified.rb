@@ -1,12 +1,12 @@
 require_relative '../../../automated_init'
 
-context "Array" do
+context "Set" do
   context "Construction" do
     context "Class Indexer Generic" do
       context "Implementation Specified" do
         type_parameter = Controls::Member.example_class
 
-        cls = Collection::Array[type_parameter] do
+        cls = Collection::Set[type_parameter] do
           def some_method
             :some_value
           end
