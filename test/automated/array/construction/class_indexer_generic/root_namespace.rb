@@ -5,13 +5,13 @@ context "Array" do
     context "Class Indexer Generic" do
       context "Root Namespace Type Parameter" do
         type_parameter = Controls::Member::Root.example
-        set_class = Collection::Array[type_parameter]
+        cls = Collection::Array[type_parameter]
 
-        instance = set_class.new
+        instance = cls.new
 
         comment "Type Parameter: #{type_parameter.inspect}"
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
-        comment "Set Class: #{set_class.inspect}"
+        comment "Class: #{cls.inspect}"
 
         test "The index value is the collection's type parameter" do
           assert(instance.type_parameter == type_parameter)
@@ -21,7 +21,7 @@ context "Array" do
           type_parameter_name = type_parameter.name.gsub('::', '_')
 
           test "Derived from the type parameter's class" do
-            assert(set_class.name == "Collection::Array::#{type_parameter_name}")
+            assert(cls.name == "Collection::Array::#{type_parameter_name}")
           end
         end
       end
