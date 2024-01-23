@@ -13,7 +13,7 @@ context "Set" do
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
         comment "Set Class: #{set_class.inspect}"
 
-        test "The index value is the collection's class parameter" do
+        test "The index value is the collection's type parameter" do
           assert(instance.type_parameter == type_parameter)
         end
 

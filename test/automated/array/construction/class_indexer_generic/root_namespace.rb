@@ -4,7 +4,7 @@ context "Array" do
   context "Construction" do
     context "Class Indexer Generic" do
       context "Root Namespace Type Parameter" do
-        type_parameter = Controls::Member.example_class
+        type_parameter = Controls::Member::Root.example
         set_class = Collection::Array[type_parameter]
 
         instance = set_class.new
@@ -13,7 +13,7 @@ context "Array" do
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
         comment "Set Class: #{set_class.inspect}"
 
-        test "The index value is the collection's class parameter" do
+        test "The index value is the collection's type parameter" do
           assert(instance.type_parameter == type_parameter)
         end
 
