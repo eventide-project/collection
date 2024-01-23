@@ -1,6 +1,6 @@
 module Collection
   module Generic
-    def [](type_parameter)
+    def [](type_parameter, &implementation)
       type_parameter_name = constant_name(type_parameter)
 
       cls = nil
