@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-collection'
-  s.summary = 'Type-checked set'
+  s.summary = 'Type-checked set and array'
   s.version = '2.4.4.0'
   s.description = ' '
 

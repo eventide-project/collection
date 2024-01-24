@@ -1,6 +1,6 @@
 # set
 
-Type-checked set
+Type-checked set and array
 
 ## Example
 
