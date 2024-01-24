@@ -6,7 +6,9 @@ context "Set" do
       context "From an Array" do
         array = Controls::Array.example
 
-        collection = Collection::Set[Controls::Array::Member].build(array)
+        member_class = array[0].class
+
+        collection = Collection::Set[member_class].build(array)
 
         test "Constructs the instance" do
           refute(collection.nil?)
@@ -20,9 +22,11 @@ context "Set" do
       context "From an array of varied types" do
         array = Controls::Array::Anomaly.example
 
+        member_class = array[0].class
+
         test "Is an error" do
           assert_raises(ArgumentError) do
-            collection = Collection::Set[Controls::Array::Member].build(array)
+            collection = Collection::Set[member_class].build(array)
           end
         end
       end

@@ -4,7 +4,7 @@ context "Set" do
   context "Construction" do
     context "Class Indexer Generic" do
       context "Implementation Specified" do
-        type_parameter = Controls::Member.example_class
+        type_parameter = Controls::Member::Class.random
 
         cls = Collection::Set[type_parameter] do
           def some_method
