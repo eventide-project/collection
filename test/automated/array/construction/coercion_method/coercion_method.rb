@@ -8,12 +8,19 @@ context "Array" do
 
         collection = Collection::Array(array)
 
+        collection_class = collection.class
+        type_parameter = collection.type_parameter
+
+        comment "Type Parameter: #{type_parameter.inspect}"
+        comment "Collection Type Parameter: #{collection.type_parameter.inspect}"
+        comment "Class: #{collection.class.inspect}"
+
         test "The first member's class is the collection's type parameter" do
-          assert(collection.type_parameter == array[0].class)
+          assert(type_parameter == array[0].class)
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Array::Collection_Controls_Array_Member")
+          assert(collection_class.name == "Collection::Array::Collection_Controls_Member_Class_Member")
         end
 
         test "Collection content is the array it was constructed from" do
@@ -26,12 +33,19 @@ context "Array" do
 
         collection = Collection::Array(member)
 
+        collection_class = collection.class
+        type_parameter = collection.type_parameter
+
+        comment "Type Parameter: #{type_parameter.inspect}"
+        comment "Collection Type Parameter: #{collection.type_parameter.inspect}"
+        comment "Class: #{collection.class.inspect}"
+
         test "The object's class is the collection's type parameter" do
-          assert(collection.type_parameter == member.class)
+          assert(type_parameter == member.class)
         end
 
         test "The class's name is derived from the type parameter's class" do
-          assert(collection.class.name == "Collection::Array::Collection_Controls_Member_Member")
+          assert(collection_class.name == "Collection::Array::Collection_Controls_Member_Class_Member")
         end
 
         test "Collection content is the object it was constructed from" do

@@ -4,7 +4,7 @@ context "Array" do
   context "Construction" do
     context "Coercion Method" do
       context "Implementation Specified" do
-        array = Controls::Array.example
+        array = Controls::Array::RandomMemberClass.example
 
         collection = Collection::Array(array) do
           def some_method
