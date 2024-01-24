@@ -91,6 +91,41 @@ array.underscore
 # => something_else
 ```
 
+### Dynamic Collection Classes
+
+A collection defined by either the generic-style class definition or the coercion method creates a unique class in the `Collection` namespace.
+
+``` ruby
+Collection::Array[String]
+# => Collection::Array::String
+
+Collection::Array(['something', 'else']).class
+# => Collection::Array::String
+```
+
+Once a dynamic collection class is defined, an attempt will not be made again to re-define it upon subsequent declarations.
+
+#### Limitation
+
+No distinction is made between dynamic classes with extended implementations and those without extended implementations.
+
+If a dynamic class is declared for a type parameter before one is declared with an extended implementation, the second declaration - the one with the extended implementation - will be ignored, and the extended implementation will not be defined on the class.
+
+``` ruby
+cls_1 = Collection::Array[String]
+
+cls_2 = Collection::Array[String] do
+  def underscore
+    items.join('_')
+  end
+end
+
+cls_2.new
+
+cls_2.underscore
+# => undefined method `underscore' for #<Collection::Array::String:0x> (NoMethodError)
+```
+
 ## Set
 
 The `Collection::Set` implements the same interface as the `Collection::Array`. The examples above apply equally to `Collection::Set`.
