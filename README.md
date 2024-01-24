@@ -67,19 +67,19 @@ cls = Collection::Array[String] do
   end
 end
 
-set = cls.new
+array = cls.new
 
-set.add('something')
-set.add('else')
+array.add('something')
+array.add('else')
 
-set.underscore
+array.underscore
 # => something_else
 ```
 
 #### Coercion Method
 
 ``` ruby
-items = ['something', 'something else']
+items = ['something', 'else']
 
 array = Collection::Array(items) do
   def underscore
