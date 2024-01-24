@@ -21,7 +21,7 @@ collection.add(:not_a_string)
 # => ArgumentError (:not_a_string must be a String)
 ```
 
-## Generic-Style
+## Generic Style
 
 ``` ruby
 type = String
@@ -43,6 +43,26 @@ collection.entry?('something')
 
 collection.add(:not_a_string)
 # => ArgumentError (:not_a_string must be a String)
+```
+
+### Extended Implementation
+
+An instance implementation can be specified for a collection class by passing it in a block to the generic class constructor.
+
+``` ruby
+cls = Collection::Set[String] do
+  def underscore
+    content.join('_')
+  end
+end
+
+collection = cls.new
+
+collection.add('something')
+collection.add('else')
+
+collection.underscore
+# => something_else
 ```
 
 ## Factory Method

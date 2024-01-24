@@ -8,10 +8,6 @@ context "Set" do
 
         collection = Collection::Set(array)
 
-        test "Constructs the instance" do
-          refute(collection.nil?)
-        end
-
         test "The first member's class is the collection's class parameter" do
           assert(collection.type_parameter == array[0].class)
         end
@@ -29,10 +25,6 @@ context "Set" do
         member = Controls::Member.example
 
         collection = Collection::Set(member)
-
-        test "Constructs the instance" do
-          refute(collection.nil?)
-        end
 
         test "The object's class is the collection's class parameter" do
           assert(collection.type_parameter == member.class)
