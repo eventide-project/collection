@@ -1,4 +1,4 @@
-# collection
+# set
 
 Type-checked set
 
@@ -7,18 +7,15 @@ Type-checked set
 ``` ruby
 type = String
 
-collection = Collection::Set.new(type)
+set = Collection::Set.new(type)
 
-collection.add('something')
+set.add('something')
 
-collection.entry? { |v| v == 'something' }
+set.any? { |item| item == 'something' }
 # => true
 
-collection.entry?('something')
-# => true
-
-collection.add(:not_a_string)
-# => ArgumentError (:not_a_string must be a String)
+set.add(:not_a_string)
+# => :not_a_string must be a String (ArgumentError)
 ```
 
 ## Generic Style
@@ -28,26 +25,20 @@ type = String
 
 cls = Collection::Set[type]
 
-cls
-# => "Collection::Set::String"
+set = cls.new
 
-collection = cls.new
+set.add('something')
 
-collection.add('something')
-
-collection.entry? { |v| v == 'something' }
+set.any? { |item| item == 'something' }
 # => true
 
-collection.entry?('something')
-# => true
-
-collection.add(:not_a_string)
-# => ArgumentError (:not_a_string must be a String)
+set.add(:not_a_string)
+# => :not_a_string must be a String (ArgumentError)
 ```
 
 ### Extended Implementation
 
-An instance implementation can be specified for a collection class by passing it in a block to the generic class constructor.
+An instance implementation can be specified for a set class by passing it in a block to the generic class constructor.
 
 ``` ruby
 cls = Collection::Set[String] do
@@ -56,12 +47,12 @@ cls = Collection::Set[String] do
   end
 end
 
-collection = cls.new
+set = cls.new
 
-collection.add('something')
-collection.add('else')
+set.add('something')
+set.add('else')
 
-collection.underscore
+set.underscore
 # => something_else
 ```
 
@@ -70,15 +61,15 @@ collection.underscore
 ``` ruby
 things = ['Thing 1', 'Thing 2']
 
-collection = Collection::Set(things)
+set = Collection::Set(things)
 
-collection.entry? { |v| v == 'Thing 1' }
+set.entry? { |v| v == 'Thing 1' }
 # => true
 
-collection.entry?('Thing 1')
+set.entry?('Thing 1')
 # => true
 
-collection.add(:not_a_string)
+set.add(:not_a_string)
 # => ArgumentError (:not_a_string must be a String)
 ```
 
@@ -87,15 +78,15 @@ collection.add(:not_a_string)
 ``` ruby
 things = ['Thing 1', 'Thing 2']
 
-collection = Collection::Set[String].build(things)
+set = Collection::Set[String].build(things)
 
-collection.entry? { |v| v == 'Thing 1' }
+set.entry? { |v| v == 'Thing 1' }
 # => true
 
-collection.entry?('Thing 1')
+set.entry?('Thing 1')
 # => true
 
-collection.add(:not_a_string)
+set.add(:not_a_string)
 # => ArgumentError (:not_a_string must be a String)
 ```
 
