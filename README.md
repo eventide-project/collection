@@ -1,47 +1,67 @@
-# set
+# Collection
 
 Type-checked set and array
+
+## Overview
+
+The Collection library provides implementations of type-checked set and array classes.
+
+Collections are constructed with a type parameter that controls the type of element that can be added to the collection.
 
 ## Example
 
 ``` ruby
 type = String
 
-set = Collection::Set.new(type)
+array = Collection::Array.new(type)
 
-set.add('something')
+array.add('something')
 
-set.any? { |item| item == 'something' }
+array.any? { |item| item == 'something' }
 # => true
 
-set.add(:not_a_string)
+array.add(:not_a_string)
 # => :not_a_string must be a String (ArgumentError)
 ```
 
-## Generic Style
+## Array
+
+### Generic-Style Class Definition
 
 ``` ruby
 type = String
 
-cls = Collection::Set[type]
+cls = Collection::Array[type]
 
-set = cls.new
+array = cls.new
+```
 
-set.add('something')
+### Coercion Method
 
-set.any? { |item| item == 'something' }
-# => true
+``` ruby
+items = ['something', 'something else']
 
-set.add(:not_a_string)
-# => :not_a_string must be a String (ArgumentError)
+array = Collection::Array(items)
+```
+
+### Constructor
+
+``` ruby
+items = ['something', 'something else']
+
+cls = Collection::Set[String]
+
+cls.build(items)
 ```
 
 ### Extended Implementation
 
-An instance implementation can be specified for a set class by passing it in a block to the generic class constructor.
+An instance implementation can be specified by passing it in a block to either its generic constructor or its coercion method.
+
+#### Generic-Style Class Definition
 
 ``` ruby
-cls = Collection::Set[String] do
+cls = Collection::Array[String] do
   def underscore
     items.join('_')
   end
@@ -56,39 +76,28 @@ set.underscore
 # => something_else
 ```
 
-## Coercion Method
+#### Coercion Method
 
 ``` ruby
-things = ['Thing 1', 'Thing 2']
+items = ['something', 'something else']
 
-set = Collection::Set(things)
+array = Collection::Array(items) do
+  def underscore
+    items.join('_')
+  end
+end
 
-set.entry? { |v| v == 'Thing 1' }
-# => true
-
-set.entry?('Thing 1')
-# => true
-
-set.add(:not_a_string)
-# => ArgumentError (:not_a_string must be a String)
+array.underscore
+# => something_else
 ```
 
-## Constructor
+## Set
 
-``` ruby
-things = ['Thing 1', 'Thing 2']
+The `Collection::Set` implements the same interface as the `Collection::Array`. The examples above apply equally to `Collection::Set`.
 
-set = Collection::Set[String].build(things)
+## Enumerable
 
-set.entry? { |v| v == 'Thing 1' }
-# => true
-
-set.entry?('Thing 1')
-# => true
-
-set.add(:not_a_string)
-# => ArgumentError (:not_a_string must be a String)
-```
+`Collection::Set` and `Collection::Array` implement Ruby's `Enumerable` module. The standard set of methods available on any Ruby enumerable are available to both `Collection::Set` and `Collection::Array`.
 
 ## License
 
