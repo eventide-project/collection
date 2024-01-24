@@ -2,12 +2,13 @@ module Collection
   class Set
     include Collection
 
-    def content
-      @content ||= ::Set.new
+    def items
+      @items ||= ::Set.new
     end
+    alias :content :items
 
     def last
-      content.to_a.last
+      items.to_a.last
     end
 
     def length

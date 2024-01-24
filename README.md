@@ -52,7 +52,7 @@ An instance implementation can be specified for a collection class by passing it
 ``` ruby
 cls = Collection::Set[String] do
   def underscore
-    content.join('_')
+    items.join('_')
   end
 end
 
@@ -65,7 +65,7 @@ collection.underscore
 # => something_else
 ```
 
-## Factory Method
+## Coercion Method
 
 ``` ruby
 things = ['Thing 1', 'Thing 2']

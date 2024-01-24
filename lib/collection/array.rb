@@ -2,12 +2,13 @@ module Collection
   class Array
     include Collection
 
-    def content
-      @content ||= ::Array.new
+    def items
+      @items ||= ::Array.new
     end
+    alias :content :items
 
     def last
-      content.last
+      items.last
     end
 
     def length

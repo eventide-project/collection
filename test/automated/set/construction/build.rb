@@ -14,7 +14,7 @@ context "Set" do
           refute(collection.nil?)
         end
 
-        test "Collection contents is the array it was constructed from" do
+        test "Collection content is the array it was constructed from" do
           assert(collection.to_a == array)
         end
       end

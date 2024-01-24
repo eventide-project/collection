@@ -15,27 +15,27 @@ module Collection
       raise ArgumentError, "#{val.inspect} must be a #{type_parameter.name}"
     end
 
-    content << val
+    items << val
 
     self
   end
   alias :<< :add
 
   def each(&action)
-    content.each(&action)
+    items.each(&action)
   end
 
   def empty?
-    content.empty?
+    items.empty?
   end
 
   def clear
-    content.clear
+    items.clear
     self
   end
 
   def ==(other)
-    other.class == self.class && other.type_parameter == self.type_parameter && other.content == self.content
+    other.class == self.class && other.type_parameter == self.type_parameter && other.items == self.items
   end
   alias :eql? :==
 
