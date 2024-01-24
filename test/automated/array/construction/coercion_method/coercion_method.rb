@@ -1,4 +1,4 @@
-require_relative '../../automated_init'
+require_relative '../../../automated_init'
 
 context "Array" do
   context "Construction" do
@@ -7,10 +7,6 @@ context "Array" do
         array = Controls::Array.example
 
         collection = Collection::Array(array)
-
-        test "Constructs the instance" do
-          refute(collection.nil?)
-        end
 
         test "The first member's class is the collection's class parameter" do
           assert(collection.type_parameter == array[0].class)
@@ -29,10 +25,6 @@ context "Array" do
         member = Controls::Member.example
 
         collection = Collection::Array(member)
-
-        test "Constructs the instance" do
-          refute(collection.nil?)
-        end
 
         test "The object's class is the collection's class parameter" do
           assert(collection.type_parameter == member.class)
