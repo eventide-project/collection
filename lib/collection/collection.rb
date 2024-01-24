@@ -49,13 +49,17 @@ module Collection
     Set[type_parameter].build(items)
   end
 
-  def self.Array(items)
+  def self.Array(items, &implementation)
     items = Kernel::Array(items)
 
     raise ArgumentError, "Collection can't be empty" if items.empty?
 
     type_parameter = items[0].class
 
-    Array[type_parameter].build(items)
+    cls = Array[type_parameter, &implementation]
+
+    collection = cls.build(items)
+
+    collection
   end
 end

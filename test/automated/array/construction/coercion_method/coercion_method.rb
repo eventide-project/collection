@@ -8,7 +8,7 @@ context "Array" do
 
         collection = Collection::Array(array)
 
-        test "The first member's class is the collection's class parameter" do
+        test "The first member's class is the collection's type parameter" do
           assert(collection.type_parameter == array[0].class)
         end
 
@@ -16,7 +16,7 @@ context "Array" do
           assert(collection.class.name == "Collection::Array::Collection_Controls_Array_Member")
         end
 
-        test "Collection contents is the array it was constructed from" do
+        test "Collection content is the array it was constructed from" do
           assert(collection.to_a == array)
         end
       end
@@ -26,7 +26,7 @@ context "Array" do
 
         collection = Collection::Array(member)
 
-        test "The object's class is the collection's class parameter" do
+        test "The object's class is the collection's type parameter" do
           assert(collection.type_parameter == member.class)
         end
 
@@ -34,7 +34,7 @@ context "Array" do
           assert(collection.class.name == "Collection::Array::Collection_Controls_Member_Member")
         end
 
-        test "Collection contents is the object it was constructed from" do
+        test "Collection content is the object it was constructed from" do
           assert(collection.to_a == [member])
         end
       end
