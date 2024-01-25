@@ -49,6 +49,10 @@ pp "!!! type param name: #{type_parameter_name}"
     end
 
     def set_collection_constant(constant, cls)
+
+pp "!!! constant: #{constant.inspect}"
+pp "!!! collection class: #{cls.inspect}"
+
       class_name = constant_name(constant)
 
       unless self.const_defined?(class_name, false)
