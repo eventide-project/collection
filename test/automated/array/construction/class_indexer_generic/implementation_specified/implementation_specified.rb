@@ -6,17 +6,17 @@ context "Array" do
       context "Implementation Specified" do
         type_parameter = Controls::Member::Class.random
 
-        cls = Collection::Array[type_parameter] do
+        collection_class = Collection::Array[type_parameter] do
           def some_method
             :some_value
           end
         end
 
-        instance = cls.new
+        instance = collection_class.new
 
         comment "Type Parameter: #{type_parameter.inspect}"
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
-        comment "Class: #{cls.inspect}"
+        comment "Class: #{collection_class.inspect}"
 
         context "Implementation" do
           result = instance.some_method

@@ -1,17 +1,17 @@
 require_relative '../../../automated_init'
 
-context "Array" do
+context "Set" do
   context "Construction" do
     context "Class Indexer Generic" do
       context "Nested Namespace Type Parameter" do
         type_parameter = Controls::Member::Class.example
-        cls = Collection::Array[type_parameter]
+        collection_class = Collection::Set[type_parameter]
 
-        instance = cls.new
+        instance = collection_class.new
 
         comment "Type Parameter: #{type_parameter.inspect}"
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
-        comment "Class: #{cls.inspect}"
+        comment "Collection Class: #{collection_class.inspect}"
 
         test "The index value is the collection's type parameter" do
           assert(instance.type_parameter == type_parameter)
@@ -21,7 +21,7 @@ context "Array" do
           type_parameter_name = type_parameter.name.gsub('::', '_')
 
           test "Derived from the type parameter's class" do
-            assert(cls.name == "Collection::Array::#{type_parameter_name}")
+            assert(collection_class.name == "Collection::Set::#{type_parameter_name}")
           end
         end
       end

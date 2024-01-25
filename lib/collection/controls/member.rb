@@ -1,5 +1,7 @@
 module Collection
   module Controls
+## Rename to Class
+## And use SomeClass for the inner member class
     module Member
       def self.example
         Class.example.new
