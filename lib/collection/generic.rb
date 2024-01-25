@@ -1,7 +1,8 @@
 module Collection
   module Generic
     def [](type_parameter, &implementation)
-      type_parameter_name = constant_name(type_parameter)
+      need_unique_class_name = !implementation.nil?
+      type_parameter_name = constant_name(type_parameter, need_unique_class_name)
 
       cls = nil
       unless self.const_defined?(type_parameter_name, false)
@@ -42,8 +43,16 @@ module Collection
       cls
     end
 
-    def constant_name(constant)
-      constant.name.gsub('::', '_')
+    def constant_name(constant, unique_class_name=nil)
+      unique_class_name ||= false
+
+      constant_name = name.gsub('::', '_')
+
+      if unique_class_name
+        constant_name
+      else
+        "#{constant_name}#{SecureRandom.hex.upcase}"
+      end
     end
 
     def set_collection_constant(constant, cls)
