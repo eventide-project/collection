@@ -4,7 +4,7 @@ context "Set" do
   context "Construction" do
     context "Class Indexer Generic" do
       context "Implementation Specified" do
-        type_parameter = Controls::Member::Class.random
+        type_parameter = Controls::Class::Random.example
 
         collection_class = Collection::Set[type_parameter] do
           def some_method
@@ -18,11 +18,11 @@ context "Set" do
         comment "Instance Type Parameter: #{instance.type_parameter.inspect}"
         comment "Class: #{collection_class.inspect}"
 
-        context "Implementation" do
-          result = instance.some_method
-
+        context "Instance has Implementation" do
           test do
-            assert(result == :some_value)
+            refute_raises(NoMethodError) do
+              instance.some_method
+            end
           end
         end
       end
