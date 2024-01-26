@@ -10,10 +10,10 @@ module Collection
       end
 
       module RandomMemberClass
-        def self.example(homogeneous_types: nil)
-          homogeneous_types ||= false
+        def self.example(homogeneous_classes: nil)
+          homogeneous_classes ||= false
 
-          if homogeneous_types
+          if homogeneous_classes
             cls_1 = member_class
             cls_2 = cls_1
           else

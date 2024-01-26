@@ -4,22 +4,21 @@ context "Array" do
   context "Construction" do
     context "Coercion Method" do
       context "Implementation Specified" do
-        array = Controls::Array::RandomMemberClass.example
+        array = Controls::Array::RandomMemberClass.example(homogeneous_classes: true)
 
         collection = Collection::Array(array) do
           def some_method
-            :some_value
           end
         end
 
         comment "Type Parameter: #{collection.type_parameter.inspect}"
         comment "Class: #{collection.class.inspect}"
 
-        context "Implementation" do
-          result = collection.some_method
-
+        context "Instance has Implementation" do
           test do
-            assert(result == :some_value)
+            refute_raises(NoMethodError) do
+              collection.some_method
+            end
           end
         end
       end
