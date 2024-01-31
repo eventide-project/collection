@@ -3,17 +3,11 @@ module Collection
     def [](type_parameter, &implementation)
       type_parameter_name = constant_name(type_parameter)
 
-pp "!!! type param name: #{type_parameter_name}"
-
-      cls = nil
-      unless self.const_defined?(type_parameter_name, false)
-        cls = define_class(type_parameter, &implementation)
-        set_collection_constant(type_parameter, cls)
+      if implementation.nil? && self.const_defined?(type_parameter_name, false)
+        return const_get(type_parameter_name)
       else
-        cls = const_get(type_parameter_name)
+        return define_class(type_parameter, &implementation)
       end
-
-      cls
     end
 
     def define_class(type_parameter, &implementation)
@@ -39,27 +33,29 @@ pp "!!! type param name: #{type_parameter_name}"
         cls.class_exec(&implementation)
       end
 
-      set_collection_constant(type_parameter, cls)
+      randomize = !implementation.nil?
+      set_collection_constant(type_parameter, cls, randomize)
 
       cls
     end
 
-    def constant_name(constant)
-      constant.name.gsub('::', '_')
-    end
+    def set_collection_constant(constant, cls, randomize=nil)
+      randomize ||= false
 
-    def set_collection_constant(constant, cls)
+      constant_name = constant_name(constant)
 
-pp "!!! constant: #{constant.inspect}"
-pp "!!! collection class: #{cls.inspect}"
-
-      class_name = constant_name(constant)
-
-      unless self.const_defined?(class_name, false)
-        self.const_set(class_name, cls)
+      if randomize
+        suffix = SecureRandom.hex.upcase
+        constant_name = "#{constant_name}_#{suffix}"
       end
 
-      class_name
+      self.const_set(constant_name, cls)
+
+      constant_name
+    end
+
+    def constant_name(constant)
+      constant.name.gsub('::', '_')
     end
   end
 end
