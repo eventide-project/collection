@@ -20,7 +20,7 @@ context "Array" do
       end
 
       context "From an array of varied types" do
-        array = Controls::Array::Anomaly.example
+        array = Controls::Array::RandomMemberClass.example(homogeneous_classes: false)
 
         member_class = array[0].class
 

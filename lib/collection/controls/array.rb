@@ -28,17 +28,6 @@ module Collection
           Class::Random.example
         end
       end
-
-## Replace with random
-      module Anomaly
-        def self.example
-          [member_class.new, member_class.new]
-        end
-
-        def self.member_class
-          Class::Random.example
-        end
-      end
     end
   end
 end
