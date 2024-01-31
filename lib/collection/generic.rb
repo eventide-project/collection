@@ -3,6 +3,8 @@ module Collection
     def [](type_parameter, &implementation)
       type_parameter_name = constant_name(type_parameter)
 
+pp "!!! type param name: #{type_parameter_name}"
+
       cls = nil
       unless self.const_defined?(type_parameter_name, false)
         cls = define_class(type_parameter, &implementation)
@@ -47,6 +49,10 @@ module Collection
     end
 
     def set_collection_constant(constant, cls)
+
+pp "!!! constant: #{constant.inspect}"
+pp "!!! collection class: #{cls.inspect}"
+
       class_name = constant_name(constant)
 
       unless self.const_defined?(class_name, false)
