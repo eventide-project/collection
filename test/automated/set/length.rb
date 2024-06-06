@@ -2,7 +2,7 @@ require_relative '../automated_init'
 
 context "Set" do
   context "Length" do
-    collection = Collection::Array.new(String)
+    collection = Collection::Set.new(String)
 
     collection.add('something')
     collection.add('something else')
